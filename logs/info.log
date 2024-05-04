@@ -45358,3 +45358,45 @@ Argument `orderBy`: Invalid value provided. Expected FreeGiftOrderByWithRelation
 [31merror[39m: getaddrinfo ENOTFOUND rest.nexmo.com {"timestamp":"2024-05-04 12:40:38"}
 [31merror[39m: getaddrinfo ENOTFOUND rest.nexmo.com {"timestamp":"2024-05-04 12:42:50"}
 [31merror[39m: getaddrinfo ENOTFOUND rest.nexmo.com {"timestamp":"2024-05-04 12:42:50"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Authentication failed against database server at `89.117.102.8`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `89.117.102.8`. {"timestamp":"2024-05-04 16:03:53"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Authentication failed against database server at `89.117.102.8`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `89.117.102.8`. {"timestamp":"2024-05-04 16:03:53"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Authentication failed against database server at `89.117.102.8`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `89.117.102.8`. {"timestamp":"2024-05-04 16:03:54"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Authentication failed against database server at `89.117.102.8`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `89.117.102.8`. {"timestamp":"2024-05-04 16:03:54"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Authentication failed against database server at `srv1043.hstgr.io`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `srv1043.hstgr.io`. {"timestamp":"2024-05-04 16:04:37"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Authentication failed against database server at `srv1043.hstgr.io`, the provided database credentials for `u468338872_alna` are not valid.
+
+Please make sure to provide valid database credentials for the database server at `srv1043.hstgr.io`. {"timestamp":"2024-05-04 16:04:37"}

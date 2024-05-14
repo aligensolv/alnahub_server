@@ -73,7 +73,8 @@ class ProductRepository{
                             description,
                             image,
                             category_id: +category_id,
-                            created_at
+                            created_at,
+                            has_gift: true
                         }
                     })
                     resolve(product)

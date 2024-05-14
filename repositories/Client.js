@@ -3,6 +3,7 @@ import TimeRepository from "./Time.js"
 import promiseAsyncWrapper from "../middlewares/promise_async_wrapper.js"
 import CustomError from "../interfaces/custom_error_class.js"
 import { NOT_FOUND } from "../constants/status_codes.js"
+import Auth from "./Auth.js"
 
 class ClientRepository{
     static prisma = new PrismaClient()
@@ -108,7 +109,9 @@ class ClientRepository{
                         return resolve(newClient)
                     }
 
-                    resolve(client)
+                    const token = await Auth.generateToken({ phone_number, id: client.id })
+
+                    resolve({ client, token })
                 }
             )
         )

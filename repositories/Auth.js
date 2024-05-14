@@ -1,5 +1,7 @@
 import * as bcrypt from "bcrypt";
-import promiseAsyncWrapepr from "../middlewares/promise_async_wrapper.js";
+import promiseAsyncWrapper from "../middlewares/promise_async_wrapper.js";
+import { jwt_secret_key } from "../config.js";
+import jwt from "jsonwebtoken";
 
 
 class Auth{
@@ -17,6 +19,28 @@ class Auth{
             async (resolve) =>{
                 let isMatch = await bcrypt.compare(password,hashed)    
                 return resolve(isMatch)
+            }
+        ))
+    }
+
+    static generateToken(data, expiresIn = '3h'){
+        return new Promise(promiseAsyncWrapper(
+            async (resolve) =>{
+                let token = jwt.sign(
+                    data,
+                    jwt_secret_key,
+                    {expiresIn}
+                )
+                return resolve(token)
+            }
+        ))
+    }
+
+    static verifyToken(token){
+        return new Promise(promiseAsyncWrapper(
+            async (resolve) =>{
+                let decoded = jwt.verify(token,jwt_secret_key)
+                return resolve(decoded)
             }
         ))
     }

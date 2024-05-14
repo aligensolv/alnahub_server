@@ -1,6 +1,7 @@
 import { BAD_REQUEST, OK } from "../constants/status_codes.js"
 import CustomError from "../interfaces/custom_error_class.js"
 import asyncWrapper from "../middlewares/async_wrapper.js"
+import Auth from "../repositories/Auth.js"
 import ClientRepository from "../repositories/Client.js"
 
 export const getAllClients = asyncWrapper(
@@ -35,7 +36,9 @@ export const loginClient = asyncWrapper(
             return next(missing_phone_number)
         }
 
-        const client = await ClientRepository.loginClient({ phone_number })
-        res.status(OK).json(client)
+        const response = await ClientRepository.loginClient({ phone_number })
+        
+
+        res.status(OK).json(response)
     }
 )

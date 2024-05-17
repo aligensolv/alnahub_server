@@ -30,7 +30,7 @@ export const createOrder = asyncWrapper(
 export const completeOrder = asyncWrapper(
     async (req, res) => {
         const { id } = req.params
-        const order = await OrderRepository.completeOrder(id)
+        const order = await OrderRepository.completeOrder(id,req)
         res.status(OK).json(order)
     }
 )

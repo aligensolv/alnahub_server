@@ -45447,3 +45447,201 @@ Argument `free_gift_counter` is missing. {"timestamp":"2024-05-04 18:24:55"}
 [31merror[39m: secretOrPrivateKey must have a value {"timestamp":"2024-05-14 14:57:33"}
 [31merror[39m: secretOrPrivateKey must have a value {"timestamp":"2024-05-14 14:57:33"}
 [31merror[39m: er is not defined {"timestamp":"2024-05-14 15:26:21"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    image: "http://localhost:3000/public\\images\\products\\product_6GL1GpA7IU.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:37:19",
+    has_gift: true,
++   description: String
+  }
+}
+
+Argument `description` is missing. {"timestamp":"2024-05-17 06:37:19"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    image: "http://localhost:3000/public\\images\\products\\product_6GL1GpA7IU.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:37:19",
+    has_gift: true,
++   description: String
+  }
+}
+
+Argument `description` is missing. {"timestamp":"2024-05-17 06:37:19"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    image: "http://localhost:3000/public\\images\\products\\product_MVwhjp5elQ.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:37:21",
+    has_gift: true,
++   description: String
+  }
+}
+
+Argument `description` is missing. {"timestamp":"2024-05-17 06:37:21"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    image: "http://localhost:3000/public\\images\\products\\product_MVwhjp5elQ.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:37:21",
+    has_gift: true,
++   description: String
+  }
+}
+
+Argument `description` is missing. {"timestamp":"2024-05-17 06:37:21"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    ~~~~~
+    description: undefined,
+    image: "http://localhost:3000/public\\images\\products\\product_Qcb5KOc4rO.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:38:13",
+    has_gift: true,
+?   id?: Int,
+?   free_gifts?: FreeGiftUncheckedCreateNestedManyWithoutProductInput
+  }
+}
+
+Unknown argument `price`. Available options are marked with ?. {"timestamp":"2024-05-17 06:38:13"}
+[31merror[39m: 
+Invalid `prisma.product.create()` invocation:
+
+{
+  data: {
+    name: "ty",
+    price: NaN,
+    ~~~~~
+    description: undefined,
+    image: "http://localhost:3000/public\\images\\products\\product_Qcb5KOc4rO.jpg",
+    category_id: 1,
+    created_at: "17-05-2024 06:38:13",
+    has_gift: true,
+?   id?: Int,
+?   free_gifts?: FreeGiftUncheckedCreateNestedManyWithoutProductInput
+  }
+}
+
+Unknown argument `price`. Available options are marked with ?. {"timestamp":"2024-05-17 06:38:13"}
+[31merror[39m: 
+Invalid `prisma.order.create()` invocation:
+
+{
+  data: {
+    client_id: 1,
+    products: [
+      {
+        product: "coffee with milk",
+        quantity: 1,
+        category: "Coffee",
+        category_id: 1
+      }
+    ],
+    created_at: "17-05-2024 19:50:03",
+    status: "pending",
+    total_price: NaN,
+    ~~~~~~~~~~~
+?   id?: Int
+  },
+  include: {
+    client: true
+  }
+}
+
+Unknown argument `total_price`. Available options are marked with ?. {"timestamp":"2024-05-17 19:50:03"}
+[31merror[39m: 
+Invalid `prisma.order.create()` invocation:
+
+{
+  data: {
+    client_id: 1,
+    products: [
+      {
+        product: "coffee with milk",
+        quantity: 1,
+        category: "Coffee",
+        category_id: 1
+      }
+    ],
+    created_at: "17-05-2024 19:50:03",
+    status: "pending",
+    total_price: NaN,
+    ~~~~~~~~~~~
+?   id?: Int
+  },
+  include: {
+    client: true
+  }
+}
+
+Unknown argument `total_price`. Available options are marked with ?. {"timestamp":"2024-05-17 19:50:03"}
+[31merror[39m: firend_gift is not defined {"timestamp":"2024-05-17 20:12:46"}
+[31merror[39m: firend_gift is not defined {"timestamp":"2024-05-17 20:12:46"}
+[31merror[39m: 
+Invalid `prisma.freeGiftRequest.create()` invocation:
+
+{
+  data: {
+    created_at: "17-05-2024 21:12:19",
+    ~~~~~~~~~~
+    requested_by: "513513",
+    requested_at: "17-05-2024 21:12:19",
+    request_status: "pending",
+    product: "coffee with milk",
+    product_id: 1
+  }
+}
+
+Unknown argument `created_at`. Available options are marked with ?. {"timestamp":"2024-05-17 21:12:19"}
+[31merror[39m: 
+Invalid `prisma.freeGiftRequest.create()` invocation:
+
+{
+  data: {
+    created_at: "17-05-2024 21:12:19",
+    ~~~~~~~~~~
+    requested_by: "513513",
+    requested_at: "17-05-2024 21:12:19",
+    request_status: "pending",
+    product: "coffee with milk",
+    product_id: 1
+  }
+}
+
+Unknown argument `created_at`. Available options are marked with ?. {"timestamp":"2024-05-17 21:12:19"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to update not found. {"timestamp":"2024-05-17 21:21:21"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to update not found. {"timestamp":"2024-05-17 21:21:21"}

@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -27,15 +21,12 @@ model Category {
 model Product {
   id         Int    @id @default(autoincrement())
   name       String @unique
-  description String
-  price      Float
   image      String
   category_id Int
   category Category @relation(fields: [category_id], references: [id])
 
   free_gifts FreeGift[]
   created_at String
-  has_gift Boolean @default(false)
 }
 
 enum OrderStatus {
@@ -53,7 +44,6 @@ model Order {
   client_id Int
   client    Client @relation(references: [id], fields: [client_id])
 
-  total_price Float
   status      OrderStatus
   created_at  String
 }
@@ -91,7 +81,6 @@ model FreeGift {
   client String
   product_id Int
   product Product @relation(fields: [product_id], references: [id])
-  price Float
   code String
   status GiftStatus
   created_at String
@@ -104,7 +93,6 @@ model FriendGift {
   product String
   category String
   code String
-  price Float
   status GiftStatus
   created_at String
 }
@@ -131,8 +119,17 @@ model Sms {
   created_at String
 }
 
-// reviews
+enum RequestStatus {
+  pending
+  accepted
+  rejected
+}
 
-// model Review {
-//   id Int @id @default(autoincrement())
-// }
+model FreeGiftRequest {
+  id Int @id @default(autoincrement())
+  requested_by String
+  requested_at String
+  request_status RequestStatus
+  product_id Int
+  product String
+}

@@ -59,7 +59,13 @@ class GiftRepository{
                             code: unique_code,
                             created_at,
                             status: 'pending',
-                            price: product.price
+                        },
+                        include: {
+                            product: {
+                                include: {
+                                    category: true
+                                }
+                            },
                         }
                     })
 
@@ -69,7 +75,7 @@ class GiftRepository{
         )
     }
 
-    static async createFriendsGift({ client_number, phone_numbers, category, product }) {
+    static async createFriendsGift({ client_number, phone_numbers, category, product, req }) {
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -86,7 +92,7 @@ class GiftRepository{
                             client = await ClientRepository.createClient({ phone_number })
                         }
 
-                        await this.prisma.friendGift.create({
+                        const friend_gift = await this.prisma.friendGift.create({
                             data: {
                                 created_at,
                                 sender: client_number,
@@ -95,9 +101,11 @@ class GiftRepository{
                                 code: unique_code,
                                 category: category.name,
                                 product: product.name,
-                                price: product.price
                             }
                         })
+
+                        const io = req.app.get('io')
+                        io.emit('new_friend_gift', friend_gift)
                     }
 
                     resolve(true)
@@ -220,6 +228,86 @@ class GiftRepository{
                         }
                     })
                     resolve(gifts)
+                }
+            )
+        )
+    }
+
+    static async createFreeGiftRequest({ sender, product }){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const created_at = await TimeRepository.getCurrentTime()
+
+                    const gift = await this.prisma.freeGiftRequest.create({
+                        data: {
+                            requested_by: sender,
+                            requested_at: created_at,
+                            request_status: 'pending',
+                            product: product.name,
+                            product_id: product.id,
+                        }
+                    })
+
+                    resolve(gift)
+            })
+        )
+    }
+
+    static async getCurrentGiftRequest(){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const gifts = await this.prisma.freeGiftRequest.findMany({
+                        where: {
+                            request_status: 'pending'
+                        },
+                        
+                    })
+                    resolve(gifts)
+                }
+            )
+        )
+    }
+
+    static async verifyGiftRequest(id){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const updated = await this.prisma.freeGiftRequest.update({
+                        where: {
+                            id: +id
+                        },
+                        data: {
+                            request_status: 'accepted'
+                        }
+                    })
+
+                    if(updated != null){
+                        await SmsRepository.sendMessage({
+                            to: updated.reciever,
+                            message: `Your friend with number ${updated.sender} sent you ${updated.product}\ngift code is ${updated.code}`
+                        })
+                    }
+                    resolve(updated)
+                }
+            )
+        )
+    }
+
+    static async rejectGiftRequest(id){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const updated = await this.prisma.freeGiftRequest.update({
+                        where: {
+                            id: +id
+                        },
+                        data: {
+                            request_status: 'rejected'
+                        }
+                    })
+                    resolve(updated)
                 }
             )
         )

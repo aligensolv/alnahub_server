@@ -45,7 +45,6 @@ class OrderRepository{
                 async (resolve, reject) => {
 
                     const created_at = await TimeRepository.getCurrentTime()
-                    const total_price = products.reduce((total, product) => total + product.price * product.quantity, 0)
 
                     const createdOrder = await this.prisma.order.create({ 
                         data: {
@@ -53,7 +52,6 @@ class OrderRepository{
                             products,
                             created_at,
                             status: 'pending',
-                            total_price
                         },
                         include: {
                             client: true
@@ -67,7 +65,7 @@ class OrderRepository{
         )
     }
 
-    static async completeOrder(id){
+    static async completeOrder(id, req){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -82,7 +80,8 @@ class OrderRepository{
 
                     await ClientCategoryPurchaseRepository.updateClientCategoryPurchases({ 
                         products: updatedOrder.products, 
-                        client_id: updatedOrder.client_id
+                        client_id: updatedOrder.client_id,
+                        req
                     })
                     resolve(updatedOrder)
                 }

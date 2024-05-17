@@ -37,7 +37,7 @@ export const createProduct = asyncWrapper(
 
         const image = static_files_host +  req.file.path
 
-        const product = await ProductRepository.createProduct({ name, price: +price, image, description, category_id })
+        const product = await ProductRepository.createProduct({ name, image, category_id })
         res.json(product)
     }
 )

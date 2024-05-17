@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { checkForAvailableFreeGift, createFriendsGift, createSystemGift, getCurrentFreeGifts, getCurrentFriendGifts, getCurrentPurchaseGifts, getTotalDonationGifts, redeemPurchaseGift, rejectFriendGift, rejectSystemGift, verifyFriendGift, verifySystemGift } from "../controllers/gift_controller.js"
+import { checkForAvailableFreeGift, createFreeGiftRequest, createFriendsGift, createSystemGift, getAllGiftRequests, getCurrentFreeGifts, getCurrentFriendGifts, getCurrentPurchaseGifts, getTotalDonationGifts, redeemPurchaseGift, rejectFriendGift, rejectGiftRequest, rejectSystemGift, verifyFriendGift, verifyGiftRequest, verifySystemGift } from "../controllers/gift_controller.js"
 
 const router = Router()
 
@@ -17,5 +17,10 @@ router.get('/gifts/friend/current', getCurrentFriendGifts)
 
 router.get('/gifts/free/product/:id/check', checkForAvailableFreeGift)
 router.get('/gifts/donation/count', getTotalDonationGifts)
+
+router.get('/gifts/requests', getAllGiftRequests)
+router.post('/gifts/requests', createFreeGiftRequest)
+router.post('/gifts/requests/:id/verify', verifyGiftRequest)
+router.post('/gifts/requests/:id/reject', rejectGiftRequest)
 
 export default router

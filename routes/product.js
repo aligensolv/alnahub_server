@@ -18,8 +18,6 @@ const upload = multer({ storage: storage })
 const router = Router()
 
 router.get('/products', getAllProducts)
-router.get('/products/eligible', getAllEligibleProducts)
-
 router.post('/products', upload.single('image'), createProduct)
 
 router.get('/products/category/:id', getProductsByCategoryId)

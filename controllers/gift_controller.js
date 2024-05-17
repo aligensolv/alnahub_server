@@ -6,7 +6,8 @@ export const createFriendsGift = asyncWrapper(
     async (req, res) => {
         const { client_number, phone_numbers, category, product } = req.body
         console.log(req.body);
-        const result = await GiftRepository.createFriendsGift({ client_number, phone_numbers, category, product })
+        const result = await GiftRepository.createFriendsGift({ client_number, phone_numbers, category, product, req })
+
         res.status(OK).json(result)
     }
 )
@@ -15,6 +16,9 @@ export const createSystemGift = asyncWrapper(
     async (req, res) => {
         const { category, product, phone_number } = req.body
         const result = await GiftRepository.createFreeGift({ category, product, phone_number })
+
+        const io = req.app.get('io')
+        io.emit('new_system_gift', result)
 
         res.status(OK).json(result)
     }
@@ -100,4 +104,43 @@ export const rejectFriendGift = asyncWrapper(
 
         return res.status(OK).json(result)
     }
+)
+
+export const createFreeGiftRequest = asyncWrapper(
+    async (req,res) => {
+        const {sender,product} = req.body
+
+        const result = await GiftRepository.createFreeGiftRequest({sender,product})
+
+        const io = req.app.get('io')
+        io.emit('new_gift_request', result)
+
+        return res.status(OK).json(result)
+    }
+)
+
+export const getAllGiftRequests = asyncWrapper(
+    async (req,res) => {
+        const result = await GiftRepository.getCurrentGiftRequest()
+
+        return res.status(OK).json(result)
+    }
+)
+
+export const verifyGiftRequest = asyncWrapper(
+    async (req,res) => {
+        const {id} = req.params
+        const result = await GiftRepository.verifyGiftRequest(id)
+
+        return res.status(OK).json(result)
+    }    
+)
+
+export const rejectGiftRequest = asyncWrapper(
+    async (req,res) => {
+        const {id} = req.params
+        const result = await GiftRepository.rejectGiftRequest(id)
+
+        return res.status(OK).json(result)
+    }    
 )

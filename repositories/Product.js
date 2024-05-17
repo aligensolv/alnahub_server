@@ -56,7 +56,7 @@ class ProductRepository{
         )
     }
 
-    static async createProduct({ name, price, image, description, category_id }){
+    static async createProduct({ name, image, category_id }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -69,12 +69,9 @@ class ProductRepository{
                     const product = await this.prisma.product.create({
                         data: {
                             name,
-                            price,
-                            description,
                             image,
                             category_id: +category_id,
                             created_at,
-                            has_gift: true
                         }
                     })
                     resolve(product)

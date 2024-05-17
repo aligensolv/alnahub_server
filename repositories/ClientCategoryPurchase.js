@@ -5,7 +5,7 @@ import GiftRepository from "./Gift.js";
 class ClientCategoryPurchaseRepository{
     static prisma = new PrismaClient()
 
-    static async updateClientCategoryPurchases({ products, client_id }){
+    static async updateClientCategoryPurchases({ products, client_id, req }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -50,8 +50,9 @@ class ClientCategoryPurchaseRepository{
                                         purchase_count: existing_category_purchase.purchase_count + product.quantity - existing_category_purchase.category.free_gift_counter - 1
                                     }
                                 })
-                                console.log('i was fireddddddddddddddd');
-                                await GiftRepository.createPurchaseGift({ client_id, category: existing_category_purchase.category.name })
+                                gift = await GiftRepository.createPurchaseGift({ client_id, category: existing_category_purchase.category.name })
+                                const io = req.app.get('io')
+                                io.emit('new_purchase_gift', result)
                             }
                         }
                     }

@@ -9,68 +9,24 @@ class ProductRepository{
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
-                    const products = await this.prisma.product.findMany({
-                        include: {
-                            category: true
-                        }
-                    })
+                    const products = await this.prisma.product.findMany()
                     resolve(products)
                 }
             )
         )
     }
 
-    static async getAllEligibleProducts(){
-        return new Promise(
-            promiseAsyncWrapper(
-                async (resolve, reject) => {
-                    const products = await this.prisma.product.findMany({
-                        where: {
-                            has_gift: true
-                        },
-                        include: {
-                            category: true
-                        }
-                    })
-                    resolve(products)
-                }
-            )
-        )
-    }
-
-    static async getProductsByCategoryId(category_id){
-        return new Promise(
-            promiseAsyncWrapper(
-                async (resolve, reject) => {
-                    const products = await this.prisma.product.findMany({
-                        where: {
-                            category_id: +category_id
-                        },
-                        include: {
-                            category: true
-                        }
-                    })
-                    resolve(products)
-                }
-            )
-        )
-    }
-
-    static async createProduct({ name, image, category_id }){
+    static async createProduct({ name, image, free_gift_counter }) {
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
                     const created_at = await TimeRepository.getCurrentTime()
-                    const category = await this.prisma.category.findUnique({
-                        where: {
-                            id: +category_id
-                        }
-                    })
+
                     const product = await this.prisma.product.create({
                         data: {
                             name,
                             image,
-                            category_id: +category_id,
+                            free_gift_counter: +free_gift_counter,
                             created_at,
                         }
                     })

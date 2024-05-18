@@ -9,7 +9,7 @@ import ClientCategoryPurchaseRepository from "./ClientCategoryPurchase.js"
 class GiftRepository{
     static prisma = new PrismaClient()
 
-    static async createPurchaseGift({ client_id, category }){
+    static async createPurchaseGift({ client_id, product }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -24,7 +24,7 @@ class GiftRepository{
                             client_id: client_id,
                             created_at,
                             status: 'pending',
-                            category,
+                            product,
                             code: unique_code,
                         }
                     })
@@ -33,16 +33,16 @@ class GiftRepository{
 
                     await SmsRepository.sendMessage({
                         to: client.phone_number,
-                        message: `Your gift code for ${category} is ${unique_code}`
+                        message: `Your gift code for ${product} is ${unique_code}`
                     })
 
-                    resolve(gift)
+                    resolve(true)
                 }
             )
         )
     }
 
-    static async createFreeGift ({ category, product, phone_number }){
+    static async createFreeGift ({ product, phone_number }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -61,11 +61,7 @@ class GiftRepository{
                             status: 'pending',
                         },
                         include: {
-                            product: {
-                                include: {
-                                    category: true
-                                }
-                            },
+                            product: true,
                         }
                     })
 
@@ -75,7 +71,7 @@ class GiftRepository{
         )
     }
 
-    static async createFriendsGift({ client_number, phone_numbers, category, product, req }) {
+    static async createFriendsGift({ client_number, phone_numbers, product, req }) {
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -99,7 +95,6 @@ class GiftRepository{
                                 reciever: phone_number,
                                 status: 'pending',
                                 code: unique_code,
-                                category: category.name,
                                 product: product.name,
                             }
                         })
@@ -180,11 +175,7 @@ class GiftRepository{
                             ]
                         },
                         include: {
-                            product: {
-                                include: {
-                                    category: true
-                                }
-                            }
+                            product: true
                         },
                     })
                     resolve(gifts)
@@ -286,7 +277,19 @@ class GiftRepository{
                     if(updated != null){
                         await SmsRepository.sendMessage({
                             to: updated.reciever,
-                            message: `Your friend with number ${updated.sender} sent you ${updated.product}\ngift code is ${updated.code}`
+                            message: `Your gift code for ${updated.product} is ${updated.code}`
+                        })
+
+                        let desired_request = await this.prisma.freeGiftRequest.findFirst({
+                            where: {
+                                product_id: +updated.product_id
+                            }
+                        })
+
+                        await this.prisma.freeGift.delete({
+                            where: {
+                                id: +desired_request.id
+                            }
                         })
                     }
                     resolve(updated)
@@ -347,11 +350,7 @@ class GiftRepository{
                             id: +id
                         },
                         include: {
-                            product: {
-                                include: {
-                                    category: true
-                                }
-                            }
+                            product: true
                         },
                         data: {
                             status: 'verified'
@@ -364,10 +363,9 @@ class GiftRepository{
 
                     await ClientCategoryPurchaseRepository.updateClientCategoryPurchases({ 
                         products: [{
-                            category_id: updated.product.category_id,
+                            product_id: updated.product.id,
                             quantity: 1,
-                            price: updated.price,
-                            category: updated.product.category
+                            product: updated.product.name
                         }], 
                         client_id: client.id
                     })

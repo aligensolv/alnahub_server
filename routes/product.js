@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { createProduct, deleteAllProducts, deleteProduct, getAllEligibleProducts, getAllProducts, getProductsByCategoryId } from "../controllers/product_controller.js"
+import { createProduct, deleteAllProducts, deleteProduct, getAllProducts } from "../controllers/product_controller.js"
 import multer from "multer"
 import Randomstring from "randomstring"
 import path from "path"
@@ -19,8 +19,6 @@ const router = Router()
 
 router.get('/products', getAllProducts)
 router.post('/products', upload.single('image'), createProduct)
-
-router.get('/products/category/:id', getProductsByCategoryId)
 
 router.delete('/products/:id', deleteProduct)
 router.delete('/products', deleteAllProducts)

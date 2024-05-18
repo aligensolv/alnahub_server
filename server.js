@@ -11,7 +11,6 @@ import { fileURLToPath } from 'url'
 import ErrorHandlerMiddleware from './middlewares/error_handler.js'
 
 
-import CategoryApi from './routes/category.js'
 import ProductApi from './routes/product.js'
 import OrderApi from './routes/order.js'
 import ClientApi from './routes/client.js'
@@ -30,7 +29,6 @@ app.use('/public', express.static(path.join(__dirname, './public')))
 
 app.use(
     '/api',
-    CategoryApi,
     ProductApi,
     OrderApi,
     ClientApi,

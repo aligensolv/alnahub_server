@@ -4,9 +4,9 @@ import GiftRepository from "../repositories/Gift.js";
 
 export const createFriendsGift = asyncWrapper(
     async (req, res) => {
-        const { client_number, phone_numbers, category, product } = req.body
+        const { client_number, phone_numbers, product } = req.body
         console.log(req.body);
-        const result = await GiftRepository.createFriendsGift({ client_number, phone_numbers, category, product, req })
+        const result = await GiftRepository.createFriendsGift({ client_number, phone_numbers, product, req })
 
         res.status(OK).json(result)
     }
@@ -14,8 +14,8 @@ export const createFriendsGift = asyncWrapper(
 
 export const createSystemGift = asyncWrapper(
     async (req, res) => {
-        const { category, product, phone_number } = req.body
-        const result = await GiftRepository.createFreeGift({ category, product, phone_number })
+        const { product, phone_number } = req.body
+        const result = await GiftRepository.createFreeGift({ product, phone_number })
 
         const io = req.app.get('io')
         io.emit('new_system_gift', result)

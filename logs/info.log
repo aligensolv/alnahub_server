@@ -45645,3 +45645,413 @@ Invalid `prisma.freeGift.update()` invocation:
 
 
 An operation failed because it depends on one or more records that were required but not found. Record to update not found. {"timestamp":"2024-05-17 21:21:21"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:47"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:47"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:47"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:47"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:53"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:50:53"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:34"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:34"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:34"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:34"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:35"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:36"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:36"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:36"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:36"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:43"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:43"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:43"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:43"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:52:44"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:15"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:15"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:15"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:15"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:40"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:40"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:40"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:40"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:41"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:41"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:41"}
+[31merror[39m: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:53:41"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:36"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:36"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:45"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:45"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:45"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:45"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:56"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:55:56"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:56:22"}
+[31merror[39m: 
+Invalid `prisma.client.findUnique()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:56:22"}
+[31merror[39m: 
+Invalid `prisma.client.create()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:56:48"}
+[31merror[39m: 
+Invalid `prisma.client.create()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 06:56:48"}
+[31merror[39m: Cannot read properties of null (reading 'product') {"timestamp":"2024-05-18 07:10:51"}
+[31merror[39m: Cannot read properties of null (reading 'product') {"timestamp":"2024-05-18 07:10:51"}
+[31merror[39m: category is not defined {"timestamp":"2024-05-18 07:11:49"}
+[31merror[39m: category is not defined {"timestamp":"2024-05-18 07:11:49"}
+[31merror[39m: gift is not defined {"timestamp":"2024-05-18 07:13:34"}
+[31merror[39m: gift is not defined {"timestamp":"2024-05-18 07:13:34"}
+[31merror[39m: gift is not defined {"timestamp":"2024-05-18 07:14:06"}
+[31merror[39m: gift is not defined {"timestamp":"2024-05-18 07:14:06"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:15:03"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:15:03"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:15:03"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:15:03"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:16:10"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:16:10"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:16:10"}
+[31merror[39m: 
+Invalid `prisma.freeGift.findMany()` invocation:
+
+
+Cannot select both '$scalars: true' and a specific scalar field 'category'. {"timestamp":"2024-05-18 07:16:10"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+{
+  where: {
+    product_id: 1,
+?   id?: Int,
+?   AND?: FreeGiftWhereInput | FreeGiftWhereInput[],
+?   OR?: FreeGiftWhereInput[],
+?   NOT?: FreeGiftWhereInput | FreeGiftWhereInput[],
+?   client?: StringFilter | String,
+?   code?: StringFilter | String,
+?   status?: EnumGiftStatusFilter | GiftStatus,
+?   created_at?: StringFilter | String,
+?   product?: ProductRelationFilter | ProductWhereInput
+  },
+  data: {
+    status: "verified"
+  }
+}
+
+Argument `where` of type FreeGiftWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?. {"timestamp":"2024-05-18 07:27:53"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+{
+  where: {
+    product_id: 1,
+?   id?: Int,
+?   AND?: FreeGiftWhereInput | FreeGiftWhereInput[],
+?   OR?: FreeGiftWhereInput[],
+?   NOT?: FreeGiftWhereInput | FreeGiftWhereInput[],
+?   client?: StringFilter | String,
+?   code?: StringFilter | String,
+?   status?: EnumGiftStatusFilter | GiftStatus,
+?   created_at?: StringFilter | String,
+?   product?: ProductRelationFilter | ProductWhereInput
+  },
+  data: {
+    status: "verified"
+  }
+}
+
+Argument `where` of type FreeGiftWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?. {"timestamp":"2024-05-18 07:27:53"}
+[31merror[39m: 
+Invalid `prisma.freeGift.delete()` invocation:
+
+{
+  where: {
+    id: 1
+  },
+  data: {
+  ~~~~
+    status: "verified"
+  }
+}
+
+Unknown argument `data`. Available options are marked with ?. {"timestamp":"2024-05-18 07:31:45"}
+[31merror[39m: 
+Invalid `prisma.freeGift.delete()` invocation:
+
+{
+  where: {
+    id: 1
+  },
+  data: {
+  ~~~~
+    status: "verified"
+  }
+}
+
+Unknown argument `data`. Available options are marked with ?. {"timestamp":"2024-05-18 07:31:45"}

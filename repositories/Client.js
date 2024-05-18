@@ -73,7 +73,7 @@ class ClientRepository{
                         include: {
                             category_purchases: {
                                 include: {
-                                    category: true
+                                    product: true
                                 }
                             },
                             orders: true
@@ -96,7 +96,7 @@ class ClientRepository{
                         include: {
                             category_purchases: {
                                 include: {
-                                    category: true
+                                    product: true
                                 }
                             },
                             orders: true

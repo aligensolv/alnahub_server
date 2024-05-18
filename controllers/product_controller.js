@@ -11,24 +11,10 @@ export const getAllProducts = asyncWrapper(
     }
 )
 
-export const getAllEligibleProducts = asyncWrapper(
-    async (req, res) => {
-        const products = await ProductRepository.getAllEligibleProducts()
-        res.json(products)
-    }
-)
-
-export const getProductsByCategoryId = asyncWrapper(
-    async (req, res) => {
-        const category_id = req.params.id
-        const products = await ProductRepository.getProductsByCategoryId(category_id)
-        res.json(products)
-    }
-)
 
 export const createProduct = asyncWrapper(
     async (req, res, next) => {
-        const { name, price, description, category_id } = req.body
+        const { name, free_gift_counter } = req.body
 
         if(!req.file){
             const missing_image = new CustomError('Product image is missing', BAD_REQUEST)
@@ -37,7 +23,7 @@ export const createProduct = asyncWrapper(
 
         const image = static_files_host +  req.file.path
 
-        const product = await ProductRepository.createProduct({ name, image, category_id })
+        const product = await ProductRepository.createProduct({ name, image, free_gift_counter })
         res.json(product)
     }
 )

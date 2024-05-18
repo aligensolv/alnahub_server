@@ -7,26 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Category {
-  id                Int    @id @default(autoincrement())
-  name              String @unique
-  image             String
-  free_gift_counter Int    @default(5)
-  products Product[]
-  client_category_purchases ClientCategoryPurchase[]
-  created_at        String
-}
-
 // available, product_images,
 model Product {
   id         Int    @id @default(autoincrement())
   name       String @unique
   image      String
-  category_id Int
-  category Category @relation(fields: [category_id], references: [id])
-
+  
   free_gifts FreeGift[]
   created_at String
+
+  free_gift_counter Int    @default(5)
+  client_category_purchases ClientCategoryPurchase[]
 }
 
 enum OrderStatus {
@@ -70,7 +61,7 @@ model PurchaseGift {
   id Int @id @default(autoincrement())
   client_id Int
   client Client @relation(references: [id], fields: [client_id])
-  category String
+  product String
   code String
   status GiftStatus
   created_at String
@@ -91,7 +82,6 @@ model FriendGift {
   sender String
   reciever String
   product String
-  category String
   code String
   status GiftStatus
   created_at String
@@ -99,8 +89,8 @@ model FriendGift {
 
 model ClientCategoryPurchase {
   id             Int      @id @default(autoincrement())
-  category_id    Int
-  category Category @relation(fields: [category_id], references: [id])
+  product_id    Int
+  product Product @relation(fields: [product_id], references: [id])
   purchase_count Int
   client_id Int
   client Client @relation(fields: [client_id], references: [id])

@@ -13,24 +13,35 @@ class ClientCategoryPurchaseRepository{
                         let existing_category_purchase = await this.prisma.clientCategoryPurchase.findFirst({
                             where: {
                                 client_id: +client_id,
-                                category_id: +product.category_id
+                                product_id: +product.product_id
                             },
                             include: {
-                                category: true
+                                product: true,
                             }
                         })
 
 
                         if(!existing_category_purchase){
-                            await this.prisma.clientCategoryPurchase.create({
-                                data: {
-                                    category_id: +product.category_id,
-                                    client_id: +client_id,
-                                    purchase_count: +product.quantity
+                            const _product = await this.prisma.product.findFirst({
+                                where: {
+                                    id: +product.product_id
                                 }
                             })
+                            await this.prisma.clientCategoryPurchase.create({
+                                data: {
+                                    product_id: +product.product_id,
+                                    client_id: +client_id,
+                                    purchase_count: +product.quantity > _product.free_gift_counter ? product.quantity - +_product.free_gift_counter : +product.quantity
+                                }
+                            })
+
+                            if(+product.quantity > _product.free_gift_counter){
+                                let gift = await GiftRepository.createPurchaseGift({ client_id, product: _product.name })
+                                const io = req.app.get('io')
+                                io.emit('new_purchase_gift', gift)
+                            }
                         }else{
-                            if(existing_category_purchase.purchase_count + product.quantity < existing_category_purchase.category.free_gift_counter){
+                            if(existing_category_purchase.purchase_count + product.quantity < existing_category_purchase.product.free_gift_counter){
                                 await this.prisma.clientCategoryPurchase.update({
                                     where: {
                                         id: existing_category_purchase.id
@@ -47,12 +58,12 @@ class ClientCategoryPurchaseRepository{
                                         id: existing_category_purchase.id
                                     },
                                     data: {
-                                        purchase_count: existing_category_purchase.purchase_count + product.quantity - existing_category_purchase.category.free_gift_counter - 1
+                                        purchase_count: existing_category_purchase.purchase_count + product.quantity - existing_category_purchase.product.free_gift_counter - 1
                                     }
                                 })
-                                gift = await GiftRepository.createPurchaseGift({ client_id, category: existing_category_purchase.category.name })
+                                let gift = await GiftRepository.createPurchaseGift({ client_id, product: existing_category_purchase.product.name })
                                 const io = req.app.get('io')
-                                io.emit('new_purchase_gift', result)
+                                io.emit('new_purchase_gift', gift)
                             }
                         }
                     }

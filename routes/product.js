@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { createProduct, deleteAllProducts, deleteProduct, getAllProducts } from "../controllers/product_controller.js"
+import { createProduct, deleteAllProducts, deleteProduct, getAllProducts, getProductsCount } from "../controllers/product_controller.js"
 import multer from "multer"
 import Randomstring from "randomstring"
 import path from "path"
@@ -22,5 +22,7 @@ router.post('/products', upload.single('image'), createProduct)
 
 router.delete('/products/:id', deleteProduct)
 router.delete('/products', deleteAllProducts)
+
+router.get('/products/count', getProductsCount)
 
 export default router

@@ -36,6 +36,11 @@ class GiftRepository{
                         message: `Your gift code for ${product} is ${unique_code}`
                     })
 
+                    await SmsRepository.storeSms({
+                        to: client.phone_number,
+                        message: `Your gift code for ${product} is ${unique_code}`
+                    })
+
                     resolve(true)
                 }
             )
@@ -280,6 +285,11 @@ class GiftRepository{
                             message: `Your gift code for ${updated.product} is ${updated.code}`
                         })
 
+                        await SmsRepository.storeSms({
+                            to: updated.reciever,
+                            message: `Your gift code for ${updated.product} is ${updated.code}`
+                        })
+
                         let desired_request = await this.prisma.freeGiftRequest.findFirst({
                             where: {
                                 product_id: +updated.product_id
@@ -331,6 +341,11 @@ class GiftRepository{
 
                     if(updated != null){
                         await SmsRepository.sendMessage({
+                            to: updated.reciever,
+                            message: `Your friend with number ${updated.sender} sent you ${updated.product}\ngift code is ${updated.code}`
+                        })
+
+                        await SmsRepository.storeSms({
                             to: updated.reciever,
                             message: `Your friend with number ${updated.sender} sent you ${updated.product}\ngift code is ${updated.code}`
                         })

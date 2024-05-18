@@ -106,13 +106,27 @@ class ClientRepository{
 
                     if(!client){
                         const newClient = await this.createClient({ phone_number })
-
-                        return resolve(newClient)
+                        const token = await Auth.generateToken({ phone_number, id: newClient.id })
+                        return resolve({
+                            client: newClient,
+                            token
+                        })
                     }
 
                     const token = await Auth.generateToken({ phone_number, id: client.id })
 
                     resolve({ client, token })
+                }
+            )
+        )
+    }
+
+    static async getClientsCount(){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const count = await this.prisma.client.count()
+                    resolve(count)
                 }
             )
         )

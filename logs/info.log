@@ -46055,3 +46055,5 @@ Invalid `prisma.freeGift.delete()` invocation:
 }
 
 Unknown argument `data`. Available options are marked with ?. {"timestamp":"2024-05-18 07:31:45"}
+[31merror[39m: Cannot read properties of null (reading 'id') {"timestamp":"2024-05-18 21:20:31"}
+[31merror[39m: Cannot read properties of null (reading 'id') {"timestamp":"2024-05-18 21:20:31"}

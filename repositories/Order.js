@@ -106,6 +106,17 @@ class OrderRepository{
             )
         )
     }
+
+    static async getOrdersCount(){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const count = await this.prisma.order.count()
+                    resolve(count)
+                }
+            )
+        )
+    }
 }
 
 export default OrderRepository

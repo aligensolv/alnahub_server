@@ -42,3 +42,10 @@ export const deleteAllProducts = asyncWrapper(
         res.json(products)
     }
 )
+
+export const getProductsCount = asyncWrapper(
+    async (req, res) => {
+        const count = await ProductRepository.getProductsCount()
+        res.json(count)
+    }
+)

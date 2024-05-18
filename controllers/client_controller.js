@@ -42,3 +42,10 @@ export const loginClient = asyncWrapper(
         res.status(OK).json(response)
     }
 )
+
+export const getClientsCount = asyncWrapper(
+    async (req, res) => {
+        const count = await ClientRepository.getClientsCount()
+        res.status(OK).json(count)
+    }
+)

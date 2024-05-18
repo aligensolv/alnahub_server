@@ -15,6 +15,8 @@ import ProductApi from './routes/product.js'
 import OrderApi from './routes/order.js'
 import ClientApi from './routes/client.js'
 import GiftApi from './routes/gift.js'
+import MessageApi from './routes/messages.js'
+
 
 const app = express()
 
@@ -32,7 +34,8 @@ app.use(
     ProductApi,
     OrderApi,
     ClientApi,
-    GiftApi
+    GiftApi,
+    MessageApi
 )
 
 const server = http.createServer(app)

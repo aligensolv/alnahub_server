@@ -61,6 +61,17 @@ class ProductRepository{
             )
         )
     }
+
+    static async getProductsCount(){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const count = await this.prisma.product.count()
+                    resolve(count)
+                }
+            )
+        )
+    }
 }
 
 export default ProductRepository

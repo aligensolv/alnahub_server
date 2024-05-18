@@ -42,3 +42,10 @@ export const rejectOrder = asyncWrapper(
         res.status(OK).json(order)
     }
 )
+
+export const getOrdersCount = asyncWrapper(
+    async (req, res) => {
+        const count = await OrderRepository.getOrdersCount()
+        res.status(OK).json(count)
+    }
+)

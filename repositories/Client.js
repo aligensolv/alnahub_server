@@ -94,7 +94,12 @@ class ClientRepository{
                             phone_number
                         },
                         include: {
-                            category_purchases: true,
+                            category_purchases: {
+                                include: {
+                                    product: true
+                                }
+                            },
+                            
                             orders: true
                         }
                     })

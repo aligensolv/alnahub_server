@@ -48,4 +48,14 @@ export const getOrdersCount = asyncWrapper(
         const count = await OrderRepository.getOrdersCount()
         res.status(OK).json(count)
     }
+) 
+
+export const updateOrderProducts = asyncWrapper(
+    async (req, res) => {
+        const { id, products } = req.body
+        console.log(id);
+        console.log(products);
+        const order = await OrderRepository.updateOrderProducts(id, products)
+        res.status(OK).json(order)
+    }
 )

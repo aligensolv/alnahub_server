@@ -2279,3 +2279,9 @@
 {"level":"error","message":"\nInvalid `prisma.freeGift.delete()` invocation:\n\n{\n  where: {\n    id: 1\n  },\n  data: {\n  ~~~~\n    status: \"verified\"\n  }\n}\n\nUnknown argument `data`. Available options are marked with ?.","timestamp":"2024-05-18 07:31:45"}
 {"level":"error","message":"Cannot read properties of null (reading 'id')","timestamp":"2024-05-18 21:20:31"}
 {"level":"error","message":"Cannot read properties of null (reading 'id')","timestamp":"2024-05-18 21:20:31"}
+{"level":"error","message":"\nInvalid `prisma.order.update()` invocation:\n\n{\n  where: {\n+   id: Int\n  },\n  data: {\n    products: undefined\n  }\n}\n\nArgument `id` is missing.","timestamp":"2024-05-19 22:39:41"}
+{"level":"error","message":"\nInvalid `prisma.order.update()` invocation:\n\n{\n  where: {\n+   id: Int\n  },\n  data: {\n    products: undefined\n  }\n}\n\nArgument `id` is missing.","timestamp":"2024-05-19 22:39:41"}
+{"level":"error","message":"\nInvalid `prisma.order.update()` invocation:\n\n{\n  where: {\n+   id: Int\n  },\n  data: {\n    products: undefined\n  }\n}\n\nArgument `id` is missing.","timestamp":"2024-05-19 22:41:04"}
+{"level":"error","message":"\nInvalid `prisma.order.update()` invocation:\n\n{\n  where: {\n+   id: Int\n  },\n  data: {\n    products: undefined\n  }\n}\n\nArgument `id` is missing.","timestamp":"2024-05-19 22:41:04"}
+{"level":"error","message":"result is not defined","timestamp":"2024-05-19 22:53:42"}
+{"level":"error","message":"result is not defined","timestamp":"2024-05-19 22:53:42"}

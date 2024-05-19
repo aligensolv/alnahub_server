@@ -46057,3 +46057,57 @@ Invalid `prisma.freeGift.delete()` invocation:
 Unknown argument `data`. Available options are marked with ?. {"timestamp":"2024-05-18 07:31:45"}
 [31merror[39m: Cannot read properties of null (reading 'id') {"timestamp":"2024-05-18 21:20:31"}
 [31merror[39m: Cannot read properties of null (reading 'id') {"timestamp":"2024-05-18 21:20:31"}
+[31merror[39m: 
+Invalid `prisma.order.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    products: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-19 22:39:41"}
+[31merror[39m: 
+Invalid `prisma.order.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    products: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-19 22:39:41"}
+[31merror[39m: 
+Invalid `prisma.order.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    products: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-19 22:41:04"}
+[31merror[39m: 
+Invalid `prisma.order.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    products: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-19 22:41:04"}
+[31merror[39m: result is not defined {"timestamp":"2024-05-19 22:53:42"}
+[31merror[39m: result is not defined {"timestamp":"2024-05-19 22:53:42"}

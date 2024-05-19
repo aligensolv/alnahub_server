@@ -101,6 +101,7 @@ class GiftRepository{
                                 status: 'pending',
                                 code: unique_code,
                                 product: product.name,
+                                quantity: product.quantity
                             }
                         })
 

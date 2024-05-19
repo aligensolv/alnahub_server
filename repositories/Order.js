@@ -117,6 +117,24 @@ class OrderRepository{
             )
         )
     }
+
+    static async updateOrderProducts(id, products){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const updatedOrder = await this.prisma.order.update({ 
+                        where: {
+                            id: +id
+                        },
+                        data: {
+                            products
+                        }
+                    })
+                    resolve(updatedOrder)
+                }
+            )
+        )
+    }
 }
 
 export default OrderRepository

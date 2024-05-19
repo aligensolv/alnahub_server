@@ -82,6 +82,7 @@ model FriendGift {
   sender String
   reciever String
   product String
+  quantity Int @default(1)
   code String
   status GiftStatus
   created_at String

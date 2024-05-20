@@ -5,6 +5,7 @@ import Randomstring from "randomstring"
 import promiseAsyncWrapper from "../middlewares/promise_async_wrapper.js"
 import SmsRepository from "./Sms.js"
 import ClientCategoryPurchaseRepository from "./ClientCategoryPurchase.js"
+import GiftStoraeRepository from "./GiftStorage.js"
 
 class GiftRepository{
     static prisma = new PrismaClient()
@@ -47,7 +48,7 @@ class GiftRepository{
         )
     }
 
-    static async createFreeGift ({ product, phone_number }){
+    static async createFreeGift ({ product, phone_number, quantity }) {
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -64,6 +65,7 @@ class GiftRepository{
                             code: unique_code,
                             created_at,
                             status: 'pending',
+                            quantity: +quantity
                         },
                         include: {
                             product: true,
@@ -120,16 +122,19 @@ class GiftRepository{
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
-                    const gifts = await this.prisma.freeGift.findMany({
+                    const gift = await this.prisma.giftStorage.findFirst({
                         where: {
-                            status: 'verified',
                             product_id: +id
                         }
                     })
 
-                    console.log(gifts);
+                    if(!gift){
+                        return resolve({
+                            quantity: 0
+                        })
+                    }
 
-                    resolve(gifts)
+                    resolve(gift)
                 }
             )
         )
@@ -230,7 +235,7 @@ class GiftRepository{
         )
     }
 
-    static async createFreeGiftRequest({ sender, product }){
+    static async createFreeGiftRequest({ sender, product, quantity }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -243,6 +248,7 @@ class GiftRepository{
                             request_status: 'pending',
                             product: product.name,
                             product_id: product.id,
+                            quantity: +quantity
                         }
                     })
 
@@ -282,26 +288,19 @@ class GiftRepository{
 
                     if(updated != null){
                         await SmsRepository.sendMessage({
-                            to: updated.reciever,
-                            message: `Your gift code for ${updated.product} is ${updated.code}`
+                            to: updated.requested_by,
+                            message: `Your gift ${updated.product} is accepted.`
                         })
 
                         await SmsRepository.storeSms({
-                            to: updated.reciever,
-                            message: `Your gift code for ${updated.product} is ${updated.code}`
+                            to: updated.requested_by,
+                            message: `Your gift ${updated.product} is accepted.`
                         })
 
-                        let desired_request = await this.prisma.freeGiftRequest.findFirst({
-                            where: {
-                                product_id: +updated.product_id
-                            }
-                        })
-
-                        await this.prisma.freeGift.delete({
-                            where: {
-                                id: +desired_request.id
-                            }
-                        })
+                        await GiftStoraeRepository.takeFromStorage({ 
+                            product: updated.product, 
+                            quantity: updated.quantity
+                         })
                     }
                     resolve(updated)
                 }
@@ -357,7 +356,7 @@ class GiftRepository{
         )
     }
 
-    static async verifySystemGift(id){
+    static async verifySystemGift(id, req){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -380,10 +379,16 @@ class GiftRepository{
                     await ClientCategoryPurchaseRepository.updateClientCategoryPurchases({ 
                         products: [{
                             product_id: updated.product.id,
-                            quantity: 1,
+                            quantity: updated.quantity,
                             product: updated.product.name
                         }], 
-                        client_id: client.id
+                        client_id: client.id,
+                        req: req
+                    })
+
+                    await GiftStoraeRepository.storeGift({
+                        product: updated.product,
+                        quantity: updated.quantity
                     })
 
                     resolve(updated)

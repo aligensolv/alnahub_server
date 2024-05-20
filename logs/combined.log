@@ -2285,3 +2285,13 @@
 {"level":"error","message":"\nInvalid `prisma.order.update()` invocation:\n\n{\n  where: {\n+   id: Int\n  },\n  data: {\n    products: undefined\n  }\n}\n\nArgument `id` is missing.","timestamp":"2024-05-19 22:41:04"}
 {"level":"error","message":"result is not defined","timestamp":"2024-05-19 22:53:42"}
 {"level":"error","message":"result is not defined","timestamp":"2024-05-19 22:53:42"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'app')","timestamp":"2024-05-20 07:11:35"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'app')","timestamp":"2024-05-20 07:11:35"}
+{"level":"error","message":"req is not defined","timestamp":"2024-05-20 07:14:00"}
+{"level":"error","message":"req is not defined","timestamp":"2024-05-20 07:14:00"}
+{"level":"error","message":"\nInvalid `prisma.sms.create()` invocation:\n\n{\n  data: {\n    message: \"Your gift code for coffee with milk is undefined\",\n    created_at: \"20-05-2024 07:20:22\",\n    type: \"gift\",\n+   reciever: String\n  }\n}\n\nArgument `reciever` is missing.","timestamp":"2024-05-20 07:20:22"}
+{"level":"error","message":"\nInvalid `prisma.sms.create()` invocation:\n\n{\n  data: {\n    message: \"Your gift code for coffee with milk is undefined\",\n    created_at: \"20-05-2024 07:20:22\",\n    type: \"gift\",\n+   reciever: String\n  }\n}\n\nArgument `reciever` is missing.","timestamp":"2024-05-20 07:20:22"}
+{"level":"error","message":"\nInvalid `prisma.freeGift.delete()` invocation:\n\n\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.","timestamp":"2024-05-20 07:21:58"}
+{"level":"error","message":"\nInvalid `prisma.freeGift.delete()` invocation:\n\n\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.","timestamp":"2024-05-20 07:21:58"}
+{"level":"error","message":"\nInvalid `prisma.giftStorage.findFirst()` invocation:\n\n{\n  where: {\n    product_id: \"1\"\n                ~~~\n  }\n}\n\nArgument `product_id`: Invalid value provided. Expected IntFilter or Int, provided String.","timestamp":"2024-05-20 07:46:05"}
+{"level":"error","message":"\nInvalid `prisma.giftStorage.findFirst()` invocation:\n\n{\n  where: {\n    product_id: \"1\"\n                ~~~\n  }\n}\n\nArgument `product_id`: Invalid value provided. Expected IntFilter or Int, provided String.","timestamp":"2024-05-20 07:46:05"}

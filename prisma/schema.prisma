@@ -18,6 +18,8 @@ model Product {
 
   free_gift_counter Int    @default(5)
   client_category_purchases ClientCategoryPurchase[]
+
+  gift_storage GiftStorage?
 }
 
 enum OrderStatus {
@@ -72,9 +74,17 @@ model FreeGift {
   client String
   product_id Int
   product Product @relation(fields: [product_id], references: [id])
+  quantity Int @default(1)
   code String
   status GiftStatus
   created_at String
+}
+
+model GiftStorage {
+  id Int @id @default(autoincrement())
+  product_id Int @unique
+  product Product @relation(fields: [product_id], references: [id])
+  quantity Int @default(1)
 }
 
 model FriendGift {
@@ -123,4 +133,5 @@ model FreeGiftRequest {
   request_status RequestStatus
   product_id Int
   product String
+  quantity Int @default(1)
 }

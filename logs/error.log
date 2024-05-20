@@ -46111,3 +46111,65 @@ Invalid `prisma.order.update()` invocation:
 Argument `id` is missing. {"timestamp":"2024-05-19 22:41:04"}
 [31merror[39m: result is not defined {"timestamp":"2024-05-19 22:53:42"}
 [31merror[39m: result is not defined {"timestamp":"2024-05-19 22:53:42"}
+[31merror[39m: Cannot read properties of undefined (reading 'app') {"timestamp":"2024-05-20 07:11:35"}
+[31merror[39m: Cannot read properties of undefined (reading 'app') {"timestamp":"2024-05-20 07:11:35"}
+[31merror[39m: req is not defined {"timestamp":"2024-05-20 07:14:00"}
+[31merror[39m: req is not defined {"timestamp":"2024-05-20 07:14:00"}
+[31merror[39m: 
+Invalid `prisma.sms.create()` invocation:
+
+{
+  data: {
+    message: "Your gift code for coffee with milk is undefined",
+    created_at: "20-05-2024 07:20:22",
+    type: "gift",
++   reciever: String
+  }
+}
+
+Argument `reciever` is missing. {"timestamp":"2024-05-20 07:20:22"}
+[31merror[39m: 
+Invalid `prisma.sms.create()` invocation:
+
+{
+  data: {
+    message: "Your gift code for coffee with milk is undefined",
+    created_at: "20-05-2024 07:20:22",
+    type: "gift",
++   reciever: String
+  }
+}
+
+Argument `reciever` is missing. {"timestamp":"2024-05-20 07:20:22"}
+[31merror[39m: 
+Invalid `prisma.freeGift.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist. {"timestamp":"2024-05-20 07:21:58"}
+[31merror[39m: 
+Invalid `prisma.freeGift.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist. {"timestamp":"2024-05-20 07:21:58"}
+[31merror[39m: 
+Invalid `prisma.giftStorage.findFirst()` invocation:
+
+{
+  where: {
+    product_id: "1"
+                ~~~
+  }
+}
+
+Argument `product_id`: Invalid value provided. Expected IntFilter or Int, provided String. {"timestamp":"2024-05-20 07:46:05"}
+[31merror[39m: 
+Invalid `prisma.giftStorage.findFirst()` invocation:
+
+{
+  where: {
+    product_id: "1"
+                ~~~
+  }
+}
+
+Argument `product_id`: Invalid value provided. Expected IntFilter or Int, provided String. {"timestamp":"2024-05-20 07:46:05"}

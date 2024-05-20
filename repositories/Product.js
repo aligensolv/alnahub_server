@@ -10,6 +10,7 @@ class ProductRepository{
             promiseAsyncWrapper(
                 async (resolve, reject) => {
                     const products = await this.prisma.product.findMany()
+                    console.log(products);
                     resolve(products)
                 }
             )

@@ -453,6 +453,24 @@ class GiftRepository{
             )
         )
     }
+
+    static async updateSystemGift({ gift_id, quantity }){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const updated = await this.prisma.freeGift.update({
+                        where: {
+                            id: +gift_id
+                        },
+                        data: {
+                            quantity
+                        }
+                    })
+                    resolve(updated)
+                }
+            )
+        )
+    }
 }
 
 export default GiftRepository

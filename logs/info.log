@@ -46173,3 +46173,29 @@ Invalid `prisma.giftStorage.findFirst()` invocation:
 }
 
 Argument `product_id`: Invalid value provided. Expected IntFilter or Int, provided String. {"timestamp":"2024-05-20 07:46:05"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    quantity: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-21 13:59:10"}
+[31merror[39m: 
+Invalid `prisma.freeGift.update()` invocation:
+
+{
+  where: {
++   id: Int
+  },
+  data: {
+    quantity: undefined
+  }
+}
+
+Argument `id` is missing. {"timestamp":"2024-05-21 13:59:10"}

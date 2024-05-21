@@ -145,3 +145,15 @@ export const rejectGiftRequest = asyncWrapper(
         return res.status(OK).json(result)
     }    
 )
+
+export const updateSystemGift = asyncWrapper(
+    async (req,res) => {
+        const {id} = req.params
+        const result = await GiftRepository.updateSystemGift({
+            gift_id: id,
+            quantity: req.body.quantity
+        })
+
+        return res.status(OK).json(result)
+    }
+)

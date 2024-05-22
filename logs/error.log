@@ -46199,3 +46199,5 @@ Invalid `prisma.freeGift.update()` invocation:
 }
 
 Argument `id` is missing. {"timestamp":"2024-05-21 13:59:10"}
+[31merror[39m: getaddrinfo ENOTFOUND rest.nexmo.com {"timestamp":"2024-05-22 07:39:44"}
+[31merror[39m: getaddrinfo ENOTFOUND rest.nexmo.com {"timestamp":"2024-05-22 07:39:44"}

@@ -27,44 +27,42 @@ class ClientCategoryPurchaseRepository{
                                     id: +product.product_id
                                 }
                             })
+                            
+                            let exact = Math.floor(product.quantity / (_product.free_gift_counter + 1)) 
                             await this.prisma.clientCategoryPurchase.create({
                                 data: {
                                     product_id: +product.product_id,
                                     client_id: +client_id,
-                                    purchase_count: +product.quantity > _product.free_gift_counter ? product.quantity - +_product.free_gift_counter : +product.quantity
+                                    purchase_count: product.quantity - (exact * _product.free_gift_counter) - exact
                                 }
                             })
 
-                            if(+product.quantity > _product.free_gift_counter){
-                                let gift = await GiftRepository.createPurchaseGift({ client_id, product: _product.name })
-                                const io = req.app.get('io')
-                                io.emit('new_purchase_gift', gift)
-                            }
+                            let gift = await GiftRepository.createPurchaseGift({ 
+                                client_id, 
+                                product: _product.name, 
+                                quantity: exact
+                                })
+                            const io = req.app.get('io')
+                            io.emit('new_purchase_gift', gift)
                         }else{
-                            if(existing_category_purchase.purchase_count + product.quantity < existing_category_purchase.product.free_gift_counter){
-                                await this.prisma.clientCategoryPurchase.update({
-                                    where: {
-                                        id: existing_category_purchase.id
-                                    },
-                                    data: {
-                                        purchase_count: {
-                                            increment: +product.quantity
-                                        }
-                                    }
+                            let exact = Math.floor((product.quantity + existing_category_purchase.purchase_count) / (existing_category_purchase.product.free_gift_counter + 1)) 
+                            
+                            await this.prisma.clientCategoryPurchase.update({
+                                where: {
+                                    id: existing_category_purchase.id
+                                },
+                                data: {
+                                    purchase_count: (product.quantity + existing_category_purchase.purchase_count)  - (exact * existing_category_purchase.product.free_gift_counter) - exact
+                                }
+                            })
+
+                            let gift = await GiftRepository.createPurchaseGift({ 
+                                client_id, 
+                                product: existing_category_purchase.product.name, 
+                                quantity: exact
                                 })
-                            }else{
-                                await this.prisma.clientCategoryPurchase.update({
-                                    where: {
-                                        id: existing_category_purchase.id
-                                    },
-                                    data: {
-                                        purchase_count: existing_category_purchase.purchase_count + product.quantity - existing_category_purchase.product.free_gift_counter - 1
-                                    }
-                                })
-                                let gift = await GiftRepository.createPurchaseGift({ client_id, product: existing_category_purchase.product.name })
-                                const io = req.app.get('io')
-                                io.emit('new_purchase_gift', gift)
-                            }
+                            const io = req.app.get('io')
+                            io.emit('new_purchase_gift', gift)
                         }
                     }
                     resolve(true)

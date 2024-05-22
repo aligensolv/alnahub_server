@@ -65,6 +65,7 @@ model PurchaseGift {
   client Client @relation(references: [id], fields: [client_id])
   product String
   code String
+  quantity Int @default(1)
   status GiftStatus
   created_at String
 }

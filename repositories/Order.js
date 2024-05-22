@@ -46,10 +46,26 @@ class OrderRepository{
 
                     const created_at = await TimeRepository.getCurrentTime()
 
+                    const mappedProducts = await Promise.all(products.map(async product => {
+                        const existing_category_purchase = await this.prisma.clientCategoryPurchase.findFirst({
+                            where: {
+                                client_id: +client_id,
+                                product_id: +product.product_id
+                            }
+                        })
+
+                        return {
+                            ...product,
+                            purchase_count: existing_category_purchase ? existing_category_purchase.purchase_count : 0
+                        }
+                    }));
+
+                    console.log(mappedProducts);
+
                     const createdOrder = await this.prisma.order.create({ 
                         data: {
                             client_id: +client_id,
-                            products,
+                            products: mappedProducts,
                             created_at,
                             status: 'pending',
                         },

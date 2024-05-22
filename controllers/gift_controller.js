@@ -157,3 +157,15 @@ export const updateSystemGift = asyncWrapper(
         return res.status(OK).json(result)
     }
 )
+
+export const updateFriendGift = asyncWrapper(
+    async (req,res) => {
+        const {id} = req.params
+        const result = await GiftRepository.updateFriendGift({
+            gift_id: id,
+            quantity: req.body.quantity
+        })
+
+        return res.status(OK).json(result)
+    }
+)

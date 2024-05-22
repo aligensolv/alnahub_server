@@ -10,7 +10,7 @@ import GiftStoraeRepository from "./GiftStorage.js"
 class GiftRepository{
     static prisma = new PrismaClient()
 
-    static async createPurchaseGift({ client_id, product }){
+    static async createPurchaseGift({ client_id, product, quantity }){
         return new Promise(
             promiseAsyncWrapper(
                 async (resolve, reject) => {
@@ -27,6 +27,7 @@ class GiftRepository{
                             status: 'pending',
                             product,
                             code: unique_code,
+                            quantity: +quantity
                         }
                     })
 
@@ -459,6 +460,24 @@ class GiftRepository{
             promiseAsyncWrapper(
                 async (resolve, reject) => {
                     const updated = await this.prisma.freeGift.update({
+                        where: {
+                            id: +gift_id
+                        },
+                        data: {
+                            quantity
+                        }
+                    })
+                    resolve(updated)
+                }
+            )
+        )
+    }
+
+    static async updateFriendGift({ gift_id, quantity }){
+        return new Promise(
+            promiseAsyncWrapper(
+                async (resolve, reject) => {
+                    const updated = await this.prisma.friendGift.update({
                         where: {
                             id: +gift_id
                         },
